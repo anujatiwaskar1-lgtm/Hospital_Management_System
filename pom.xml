@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <!-- ✅ Spring Boot Parent (manages all dependency versions) -->
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>3.2.5</version>
+        <relativePath/>
+    </parent>
+
+    <groupId>com.medicore</groupId>
+    <artifactId>medicore-hms</artifactId>
+    <version>1.0.0</version>
+    <packaging>jar</packaging>
+    <name>Hospital Management System</name>
+
+    <properties>
+        <java.version>17</java.version>
+        <javafx.version>21.0.2</javafx.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <dependencies>
+
+        <!-- ✅ Spring Boot Core (NO web server - desktop app only) -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
+        </dependency>
+
+        <!-- ✅ Spring Data JPA (connects Spring to MySQL via Hibernate) -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
+
+        <!-- ✅ MySQL JDBC Driver (runtime - not needed at compile time) -->
+        <dependency>
+            <groupId>com.mysql</groupId>
+            <artifactId>mysql-connector-j</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+
+        <!-- ✅ JavaFX Controls (buttons, tables, charts, etc.) -->
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-controls</artifactId>
+            <version>${javafx.version}</version>
+        </dependency>
+
+        <!-- ✅ JavaFX Graphics (rendering engine) -->
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-graphics</artifactId>
+            <version>${javafx.version}</version>
+        </dependency>
+
+        <!-- ✅ JavaFX FXML (optional if you use FXML later) -->
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-fxml</artifactId>
+            <version>${javafx.version}</version>
+        </dependency>
+
+    </dependencies>
+
+    <build>
+        <plugins>
+
+            <!-- ✅ Spring Boot Maven Plugin (creates executable JAR) -->
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <mainClass>com.medicore.MediCoreApp</mainClass>
+                </configuration>
+            </plugin>
+
+            <!-- ✅ JavaFX Maven Plugin (run with: mvn javafx:run) -->
+            <plugin>
+                <groupId>org.openjfx</groupId>
+                <artifactId>javafx-maven-plugin</artifactId>
+                <version>0.0.8</version>
+                <configuration>
+                    <mainClass>com.medicore.MediCoreApp</mainClass>
+                    <!-- JVM args to allow JavaFX access on Java 17+ -->
+                    <options>
+                        <option>--add-opens</option>
+                        <option>java.base/java.lang=ALL-UNNAMED</option>
+                        <option>--add-opens</option>
+                        <option>java.base/java.util=ALL-UNNAMED</option>
+                    </options>
+                </configuration>
+            </plugin>
+
+        </plugins>
+    </build>
+
+</project>
