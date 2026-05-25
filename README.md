@@ -203,3 +203,22 @@ SELECT * FROM beds WHERE status = 'OCCUPIED';
 ```
 PS C:\Medicore> cd C:\Medicore
 PS C:\Medicore> mvn javafx:run
+
+to kill any port process
+anetstat -ano | findstr :8080
+taskkill /PID 27136 /F
+
+
+
+start backend
+cd C:\Users\anuja\Downloads\medicore-frontend
+PS C:\Users\anuja\Downloads\medicore-frontend> npm start
+
+
+start frontend
+cd C:\Medicore
+PS C:\Medicore> mvn spring-boot:run
+
+
+JAR is now at:
+C:\Medicore\target\medicore-hms-1.0.0.jar

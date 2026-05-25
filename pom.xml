@@ -40,10 +40,10 @@
 
         <!-- ✅ MySQL JDBC Driver (runtime - not needed at compile time) -->
         <dependency>
-            <groupId>com.mysql</groupId>
-            <artifactId>mysql-connector-j</artifactId>
-            <scope>runtime</scope>
-        </dependency>
+    <groupId>org.postgresql</groupId>
+    <artifactId>postgresql</artifactId>
+    <scope>runtime</scope>
+</dependency>
 
         <!-- ✅ JavaFX Controls (buttons, tables, charts, etc.) -->
         <dependency>
@@ -65,7 +65,10 @@
             <artifactId>javafx-fxml</artifactId>
             <version>${javafx.version}</version>
         </dependency>
-
+        <dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-web</artifactId>
+</dependency>
     </dependencies>
 
     <build>
@@ -73,12 +76,12 @@
 
             <!-- ✅ Spring Boot Maven Plugin (creates executable JAR) -->
             <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-                <configuration>
-                    <mainClass>com.medicore.MediCoreApp</mainClass>
-                </configuration>
-            </plugin>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-maven-plugin</artifactId>
+    <configuration>
+        <mainClass>com.medicore.MediCore</mainClass>
+    </configuration>
+</plugin>
 
             <!-- ✅ JavaFX Maven Plugin (run with: mvn javafx:run) -->
             <plugin>

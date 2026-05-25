@@ -4,24 +4,7 @@ import jakarta.persistence.*;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
-/**
- * ✅ Patient Entity — JPA maps this class directly to MySQL table `patients`
- *
- * Hibernate auto-creates this table on first run (ddl-auto=update in application.properties):
- *
- *   CREATE TABLE patients (
- *     id             BIGINT AUTO_INCREMENT PRIMARY KEY,
- *     patient_id     VARCHAR(20) UNIQUE NOT NULL,
- *     name           VARCHAR(100) NOT NULL,
- *     age            INT NOT NULL,
- *     ward           VARCHAR(50) NOT NULL,
- *     bed_id         VARCHAR(10) NOT NULL,
- *     diagnosis      VARCHAR(200) NOT NULL,
- *     entry_date     DATE NOT NULL,
- *     exit_date      DATE,
- *     status         VARCHAR(20) NOT NULL
- *   );
- */
+
 @Entity
 @Table(name = "patients")
 public class Patient {
